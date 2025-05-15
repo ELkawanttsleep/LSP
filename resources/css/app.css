@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Custom Pagination */
+
+
+:root {
+    --primary-color: #3B82F6;  /* Biru modern */
+    --secondary-color: #94A3B8; /* Abu-abu netral */
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;  /* Tambahkan jarak antar tombol */
+}
+
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px; /* Lebar minimum tombol */
+    white-space: nowrap; /* Mencegah text wrap */
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+}
+
+.page-item.active .page-link {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.page-link:hover {
+    background: #F1F5F9; /* Abu sangat muda */
+    color: var(--primary-color);
+}
+
+.page-link svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin: -3px 2px 0; /* Adjust positioning */
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+}
