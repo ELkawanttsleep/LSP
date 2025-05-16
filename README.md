@@ -1,0 +1,2 @@
+# LSP
+dikala laptop matot
