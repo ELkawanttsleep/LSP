@@ -41,9 +41,28 @@ class LoginController extends Controller
     /**
      * Log the user out of the application.
      */
-    public function logout()
+
+
+    public function authenticated(Request $request, $user)
+    {
+        if ($user->jabatan === 'admin') {
+            return redirect()->route('dashboard.admin');
+        } elseif ($user->jabatan === 'apoteker') {
+            return redirect()->route('dashboard.apoteker');
+        } elseif ($user->jabatan === 'kasir') {
+            return redirect()->route('dashboard.kasir');
+        } elseif ($user->jabatan === 'pemilik') {
+            return redirect()->route('dashboard.owner');
+        } else {
+            return redirect()->route('dashboard.karyawan');
+        }
+    }
+    
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 }

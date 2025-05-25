@@ -96,7 +96,14 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a href="{{ route('login') }}" class="nav-link">Logout</a>
+                            <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="nav-link btn btn-link" style="width: 100%; text-align: left">
+                                        <i class="fa fa-sign-out"></i> Logout
+                                    </button>
+                                </form>
+                            </li>
                         </div>
                     </div>
 
